@@ -1,0 +1,35 @@
+{
+  "name": "flowforge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FlowForge - AI-powered project management and productivity operating system.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@flowforge/web",
+    "dev:web": "npm run dev --workspace=@flowforge/web",
+    "dev:api": "npm run dev --workspace=@flowforge/api",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "prettier --write .",
+    "seed": "npm run seed --workspace=@flowforge/api"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "postcss": "8.5.15",
+    "next@16.2.6": {
+      "postcss": "8.5.15"
+    }
+  }
+}

@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-lavender-50: #f7f2ff;
+  --color-lavender-100: #eee5ff;
+  --color-lavender-200: #dfccff;
+  --color-lavender-300: #c9a8ff;
+  --color-lavender-400: #ac77ff;
+  --color-lavender-500: #8b45f6;
+  --color-mint-50: #effff8;
+  --color-mint-100: #d8ffef;
+  --color-mint-200: #b4ffdf;
+  --color-mint-300: #7dffc8;
+  --color-mint-400: #32e9aa;
+  --color-peach-50: #fff5ef;
+  --color-peach-100: #ffe7d7;
+  --color-peach-200: #ffc8a8;
+  --color-peach-300: #ffa16f;
+  --color-electric-400: #38bdf8;
+  --color-electric-500: #0ea5e9;
+  --font-sans: var(--font-geist-sans), Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  --background: 220 40% 98%;
+  --foreground: 224 30% 10%;
+  --card: 0 0% 100% / 0.74;
+  --card-foreground: 224 30% 10%;
+  --border: 224 30% 86% / 0.78;
+  --input: 224 30% 90%;
+  --ring: 205 92% 55%;
+  --muted: 220 32% 94%;
+  --muted-foreground: 224 16% 42%;
+  --primary: 205 92% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 158 72% 55%;
+  --secondary-foreground: 160 60% 10%;
+  --accent: 24 100% 72%;
+  --accent-foreground: 21 68% 16%;
+  --destructive: 0 84% 60%;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: 222 47% 8%;
+  --foreground: 214 45% 96%;
+  --card: 220 38% 12% / 0.72;
+  --card-foreground: 214 45% 96%;
+  --border: 214 35% 28% / 0.58;
+  --input: 214 34% 20%;
+  --ring: 188 95% 55%;
+  --muted: 220 34% 16%;
+  --muted-foreground: 215 18% 70%;
+  --primary: 195 95% 56%;
+  --primary-foreground: 218 50% 8%;
+  --secondary: 158 76% 48%;
+  --secondary-foreground: 158 70% 8%;
+  --accent: 26 100% 65%;
+  --accent-foreground: 25 65% 8%;
+  --destructive: 0 72% 51%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(45, 212, 191, 0.2), transparent 28rem),
+    radial-gradient(circle at 78% 18%, rgba(255, 161, 111, 0.18), transparent 26rem),
+    linear-gradient(135deg, hsl(var(--background)), hsl(var(--muted)));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(45, 212, 191, 0.32);
+}
+
+.glass {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  box-shadow: 0 20px 70px rgba(15, 23, 42, 0.16);
+  backdrop-filter: blur(24px) saturate(1.28);
+}
+
+.dark .glass {
+  box-shadow: 0 22px 80px rgba(0, 0, 0, 0.34);
+}
+
+.premium-grid {
+  background-image:
+    linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 72%);
+}
+
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 4px hsl(var(--ring) / 0.28);
+}
+
+.page-shell {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, #7dd3fc 0%, #7dffc8 42%, #ffa16f 78%, #c9a8ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.soft-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+.soft-scrollbar::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.soft-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: hsl(var(--border));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
